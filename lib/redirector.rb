@@ -11,7 +11,7 @@ class Redirector
 
   def call(env)
     host_config = get_host_config(env['HTTP_HOST'])
-    [host_config['status'], {'Content-Type' => 'text','Location' => host_config['location']}, get_host_response( host_config ) ]
+    [host_config['status'], {'X-Directed-By' => 'redirector','Content-Type' => 'text','Location' => host_config['location']}, [get_host_response( host_config )] ]
   end
 
   private
