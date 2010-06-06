@@ -1,6 +1,6 @@
-localhost:
-  status: 302
-  location: 'http://cosmicvent.com'
+localhost: # <== This is the host name of the domain which you want to redirect
+  status: 302 # <== status code with which it is redirected, 302 for temporary redirects, 301 for permanent redirects
+  location: 'http://cosmicvent.com' # <== the domain which it is redirected *to*
 
 'localhost:3030':
   status: 301
