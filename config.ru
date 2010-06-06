@@ -1,8 +1,7 @@
 require File.join(File.dirname(__FILE__), 'lib/redirector')
 
 use Rack::ContentLength
-use Rack::ShowExceptions
-use Debugger, true
+use Debugger, false
 
 app = proc do |env|
   app = Redirector.new()

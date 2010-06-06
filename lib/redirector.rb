@@ -8,16 +8,21 @@ class Redirector
     @@config
   end
 
-  def get_config(host)
+
+  def call(env)
+    host_config = get_host_config(env['HTTP_HOST'])
+    [host_config['status'], {'Content-Type' => 'text','Location' => host_config['location']}, get_host_response( host_config ) ]
+  end
+
+  private
+  def get_host_response(host_config)
+    "#{host_config['status']} moved. The document has moved to #{host_config['location']}"
+  end
+
+  def get_host_config(host)
     return @@config[host] if @@config[host]
     raise "Configuration for #{host} not available"
   end
-
-  def call(env)
-    host_config = get_config(env['HTTP_HOST'])
-    [host_config['status'], {'Content-Type' => 'text/html','Location' => host_config['location']}, '302-Found']
-  end
-
 end
 
 
@@ -38,5 +43,3 @@ class Debugger
   end
 
 end
-
-
