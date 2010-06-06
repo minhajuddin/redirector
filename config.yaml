@@ -1,3 +1,7 @@
 localhost:
   status: 302
-  location: http://cosmicvent.com
+  location: 'http://cosmicvent.com'
+
+'localhost:3030':
+  status: 301
+  location: 'http://my.cosmicvent.com'
