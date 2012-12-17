@@ -2,6 +2,8 @@ Redirector
 ==
 A simple rack application which makes redirection of multiple domains a breeze.
 
+**A version which works on Heroku with a few nice helpers is available at: https://github.com/umts/redirector/ **
+
 Configuration
 --
 To configure the application all you have to do is edit the `config.yaml` file, the following is a sample configuration file:
